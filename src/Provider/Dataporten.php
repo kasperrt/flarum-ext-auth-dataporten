@@ -81,8 +81,6 @@
 		 * @throws \League\OAuth2\Client\Provider\Exception\IdentityProviderException
 		 */
 		protected function checkResponse(ResponseInterface $response, $data) {
-			error_log(json_encode($response));
-			error_log(json_encode($data));
 			if($response->getStatusCode() >= 400) {
 				throw DataportenIdentityProviderException::clientException($response, $data);
 			} elseif(isset($data['error'])) {
