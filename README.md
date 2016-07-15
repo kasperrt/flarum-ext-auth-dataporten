@@ -24,6 +24,6 @@ Your application will require a *Client ID* and *Client Secret*. Get these from
 
 https://dashboard.dataporten.no/
 
-## Credits
+## Other
 
-This is a rewrite of the Google Authenticator extension for Flarum: https://github.com/johnhearfield/flarum-ext-oauth-google
+- Makes use of the OAuth 2.0 Client https://github.com/thephpleague/oauth2-client

@@ -8,7 +8,7 @@ app.initializers.add('uninett/auth-dataporten', () => {
     items.add('dataporten',
       <LogInButton
         className="Button LogInButton--dataporten"
-        icon="dataporten"
+        icon="unlock"
         path="/auth/dataporten">
         {app.translator.trans('uninett-auth-dataporten.forum.log_in.with_dataporten_button')}
       </LogInButton>

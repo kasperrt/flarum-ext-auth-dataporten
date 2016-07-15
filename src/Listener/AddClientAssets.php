@@ -3,7 +3,9 @@
 namespace Uninett\Auth\Dataporten\Listener;
 
 use Flarum\Event\ConfigureClientView;
+use Flarum\Event\ConfigureLocales;
 use Illuminate\Contracts\Events\Dispatcher;
+use DirectoryIterator;
 
 class AddClientAssets
 {
@@ -13,6 +15,7 @@ class AddClientAssets
     public function subscribe(Dispatcher $events)
     {
         $events->listen(ConfigureClientView::class, [$this, 'addAssets']);
+	    $events->listen(ConfigureLocales::class, [$this, 'addLocales']);
     }
 
     /**

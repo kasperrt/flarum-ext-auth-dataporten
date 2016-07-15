@@ -1,11 +1,15 @@
 uninett-auth-dataporten:
 
   admin:
+
     dataporten_settings:
-      title: Dataporten Settings
-      client_id_label: Client ID
-      client_secret_label: Client Secret
+
+      title: "Dataporten Settings"
+      client_id_label: "Client ID"
+      client_secret_label: "Client Secret"
 
   forum:
+
     log_in:
-      with_dataporten_button: Login with Dataporten
+
+      with_dataporten_button: "Dataporten Login"

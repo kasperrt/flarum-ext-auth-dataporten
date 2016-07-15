@@ -5,8 +5,8 @@
 	use Flarum\Forum\AuthenticationResponseFactory;
 	use Flarum\Forum\Controller\AbstractOAuth2Controller;
 	use Flarum\Settings\SettingsRepositoryInterface;
-	use League\OAuth2\Client\Provider\GenericProvider;
 	use League\OAuth2\Client\Provider\ResourceOwnerInterface;
+	use Uninett\Auth\Dataporten\Provider\Dataporten;
 
 	class DataportenAuthController extends AbstractOAuth2Controller {
 		/**
@@ -27,7 +27,7 @@
 		 * {@inheritdoc}
 		 */
 		protected function getProvider($redirectUri) {
-			return new GenericProvider ([
+			return new Dataporten ([
 				'clientId'                => $this->settings->get('uninett-auth-dataporten.client_id'),
 				'clientSecret'            => $this->settings->get('uninett-auth-dataporten.client_secret'),
 				'redirectUri'             => $redirectUri,
@@ -36,22 +36,12 @@
 				'urlResourceOwnerDetails' => 'https://auth.dataporten.no/userinfo'
 			]);
 		}
+
 		/**
 		 * {@inheritdoc}
-		 *
-		 * TODO: Scopes for Dataporten
 		 */
 		protected function getAuthorizationUrlOptions() {
-			return [
-				'scope' =>
-					[
-						'email',
-						'profile',
-						'userid',
-						'userid-feide',
-						'https://auth.dataporten.no/userinfo'
-					]
-			];
+			return [];
 		}
 
 		/**
@@ -68,7 +58,8 @@
 		 */
 		protected function getSuggestions(ResourceOwnerInterface $resourceOwner) {
 			return [
-				'username' => $resourceOwner->getFirstName(),
+				'username'  => $resourceOwner->getUserName(),
+				'avatarUrl' => $resourceOwner->getProfilePhoto()
 			];
 		}
 	}

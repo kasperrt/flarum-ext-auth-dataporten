@@ -22,7 +22,7 @@ System.register('uninett/auth-dataporten/main', ['flarum/extend', 'flarum/app', 
             LogInButton,
             {
               className: 'Button LogInButton--dataporten',
-              icon: 'dataporten',
+              icon: 'unlock',
               path: '/auth/dataporten' },
             app.translator.trans('uninett-auth-dataporten.forum.log_in.with_dataporten_button')
           ));
