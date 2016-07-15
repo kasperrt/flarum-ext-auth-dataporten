@@ -1,29 +1,31 @@
-** This repo is under development! **
-
 # Flarum Dataporten Authenticator
 
-Allows users to login using Dataporten from UNINETT AS.
-
-## Installation
-
-To install, use composer:
-
-```
-composer require uninett/flarum-ext-auth-dataporten
-```
+Allows users to login using Dataporten from UNINETT.
 
 ## Usage
 
-* Install extension via Composer
-* Enable extension in the admin/extensions of Flarum
-* Fill in the settings field for the extension
+Presuming you have Flarum installed and ready:
 
-### Setting up Dataporten
+### 1. Register your client with Dataporten
 
-Your application will require a *Client ID* and *Client Secret*. Get these from 
+1. Register your client at https://dashboard.dataporten.no/. 
+    - The redirect URI should look like this: `https://domain.no/[path_to_flarum]/auth/dataporten`)
+2. Request the following scopes (rettigheter): `email`, `profile` (for name and photo) and `userid-feide`
+3. Make a note of the OAuth Client credentials (`Client ID` and `Client Secret`)
 
-https://dashboard.dataporten.no/
+### 2. Install the extenstion
 
-## Other
+1. Install the extension with Composer (`composer require uninett/flarum-ext-auth-dataporten`)
+2. Enable the extension in Flarum's admin/extensions page
+3. Fill in the OAuth Client credentials (`Client ID` and `Client Secret`) in the settings for the extension
 
-- Makes use of the OAuth 2.0 Client https://github.com/thephpleague/oauth2-client
+## Other requirements
+
+```
+    "require": {
+        "flarum/core": "^0.1.0-beta.5",
+        "league/oauth2-client": "~1.0"
+    },
+```
+
+- The PHP League OAuth 2.0 Client: https://github.com/thephpleague/oauth2-client
