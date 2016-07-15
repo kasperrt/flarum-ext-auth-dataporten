@@ -40,7 +40,7 @@ System.register('uninett/auth-dataporten/components/DataportenSettingsModal', ['
                 null,
                 app.translator.trans('uninett-auth-dataporten.admin.dataporten_settings.client_id_label')
               ),
-              m('input', { className: 'FormControl', bidi: this.setting('uninett-auth-dataporten.app_id') })
+              m('input', { className: 'FormControl', bidi: this.setting('uninett-auth-dataporten.client_id') })
             ), m(
               'div',
               { className: 'Form-group' },
@@ -49,16 +49,7 @@ System.register('uninett/auth-dataporten/components/DataportenSettingsModal', ['
                 null,
                 app.translator.trans('uninett-auth-dataporten.admin.dataporten_settings.client_secret_label')
               ),
-              m('input', { className: 'FormControl', bidi: this.setting('uninett-auth-dataporten.app_secret') })
-            ), m(
-              'div',
-              { className: 'Form-group' },
-              m(
-                'label',
-                null,
-                app.translator.trans('uninett-auth-dataporten.admin.dataporten_settings.hosted_domain_label')
-              ),
-              m('input', { className: 'FormControl', bidi: this.setting('uninett-auth-dataporten.app_domain') })
+              m('input', { className: 'FormControl', bidi: this.setting('uninett-auth-dataporten.client_secret') })
             )];
           }
         }]);

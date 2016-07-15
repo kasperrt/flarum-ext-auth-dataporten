@@ -5,7 +5,6 @@ uninett-auth-dataporten:
       title: "Dataporten Settings"
       client_id_label: "Client ID"
       client_secret_label: "Client Secret"
-      hosted_domain_label: "Hosted Domain"
 
   forum:
     log_in:
