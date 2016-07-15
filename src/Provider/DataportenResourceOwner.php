@@ -109,15 +109,15 @@
 
 			// Prefer full name
 			if(!is_null($this->getName())) {
-				return strtolower( strtr( $this->getName(), $unwanted_chars ));
+				return strtolower(strtr($this->getName(), $unwanted_chars));
 			}
 			// ...if not, Feide username
 			if(!is_null($this->getUserIdFeide())) {
-				return strtolower( strtr(  $this->getUserIdFeide(), $unwanted_chars ));
+				return strtolower(strtr($this->getUserIdFeide(), $unwanted_chars));
 			}
 			// ...hm, what about email then?
 			if(!is_null($this->getEmail())) {
-				return strtolower( strtr( $this->getEmail(), $unwanted_chars ));
+				return strtolower(strtr($this->getEmail(), $unwanted_chars));
 			}
 
 			// Give up on suggestions
