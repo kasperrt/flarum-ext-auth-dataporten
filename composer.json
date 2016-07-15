@@ -1,0 +1,37 @@
+{
+    "name": "uninett/flarum-ext-auth-dataporten",
+    "description": "Allow users to log in with Dataporten from UNINETT AS.",
+    "type": "flarum-extension",
+    "keywords": ["authentication"],
+    "license": "MIT",
+    "version": "v0.1.0-beta.1",
+    "authors": [
+        {
+            "name": "Simon Skrødal",
+            "email": "simon.skrodal@uninett.no"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/skrodal/flarum-ext-auth-dataporten/issues",
+        "source": "https://github.com/skrodal/flarum-ext-auth-dataporten"
+    },
+    "require": {
+        "flarum/core": "^0.1.0-beta.5",
+        "league/oauth2-client": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Uninett\\Auth\\Dataporten\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Dataporten Login",
+            "icon": {
+                "name": "unlock",
+                "backgroundColor": "#d13e32",
+                "color": "#FFF"
+            }
+        }
+    }
+}
