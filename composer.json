@@ -32,5 +32,7 @@
                 "color": "#FFF"
             }
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
