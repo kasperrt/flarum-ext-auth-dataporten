@@ -1,4 +1,4 @@
-# Flarum Dataporten Authenticator
+# Flarum Dataporten Authentication Extension
 
 Allows users to login using Dataporten from UNINETT.
 
