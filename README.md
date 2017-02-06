@@ -9,7 +9,7 @@ Allows users to login using Dataporten from UNINETT.
 
 ### 2. Register your client with Dataporten
 
-1. Register your client at https://dashboard.dataporten.no/. 
+1. Register your client at https://dashboard.dataporten.no/.
     - The redirect URI should look like this: `https://domain.no/[path_to_flarum]/auth/dataporten`)
 2. Request the following scopes (rettigheter): `email`, `profile` (for name and photo) and `userid-feide`
 3. Make a note of the OAuth Client credentials (`Client ID` and `Client Secret`)
@@ -30,3 +30,7 @@ Allows users to login using Dataporten from UNINETT.
 ```
 
 - The PHP League OAuth 2.0 Client: https://github.com/thephpleague/oauth2-client
+
+## Other
+
+By Simon Skrodal for UNINETT 2016
