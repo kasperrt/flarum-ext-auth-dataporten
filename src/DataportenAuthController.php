@@ -53,6 +53,39 @@
 			];
 		}
 
+		protected function getGroupFromApi($user_email) {
+				$url = 'https://groups-api.dataporten.no/groups/me/groups';
+				$groups = $this->provider->getResponse(
+						$this->provider->getAuthenticatedRequest('GET', $url, $this->token)
+				);
+				$group_ids = Array();
+				foreach($groups as $group) {
+					$get_group = Group::where('name_singular', $group["displayName"] . $group["id"])->get();
+					if(count($get_group) == 0) {
+						$code = dechex(crc32($group["displayName"]));
+						$code = "#" . substr($code, 0, 6);
+						$new_group = Group::build(
+		            $group["displayName"] . $group["id"],
+    				    $group["displayName"] . $group["id"],
+    				    $code,
+    				    null
+    				);
+    				$new_group->save();
+						$permission = Permission::where('permission', 'discussion.likePosts')->get();
+						$group_id = $new_group["attributes"]["id"];
+						$permissions = ["discussion.flagPosts", "discussion.likePosts", "discussion.reply", "discussion.replyWithoutApproval", "discussion.startWithoutApproval", "startDiscussion"];
+						foreach($permissions as $permission) {
+							Permission::insert(Array('permission' => $permission, 'group_id' => $group_id));
+						}
+					} else {
+						$group_id = $get_group[0]["attributes"]["id"];
+					}
+					array_push($group_ids, $group_id);
+				}
+				$user = User::where('email', $user_email)->get();
+				$user[0]->groups()->sync($group_ids);
+		}
+
 		/**
 		 * {@inheritdoc}
 		 */
